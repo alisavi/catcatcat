@@ -1,14 +1,12 @@
-/** @brief Solving of quadratic equation
- * Solves a square equation a*x^2 + b*x + c = 0;
- * @file ios.h
- * @param[in] a a - coefficient
- * @param[in] b b - coefficient
- * @param[in] c c - coefficient
- * @param[out] x1 x1 - pointer to the first root
- * @param[out] x2 x2 - pointer to the first root
- * 
- * @return Program exit status
+/**
+ * @file io.h
  *
+ * @brief reading user's coefficients and writing the result
+ * @version 0.1
+ * @date 2022-08-25
+ * 
+ * @copyright Copyright (c) 2022
+ * 
  */
 
 #ifndef SOLV_IO_H

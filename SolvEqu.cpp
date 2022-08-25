@@ -4,19 +4,43 @@
 #include "enum.h"
 #include "SolvEqu.h"
 
-const double Eps = 1e-6;
+const double Eps = 1e-6;///< const for comparison double with 0
 
-int iszero(double a)
+/**
+ * @brief 
+ * 
+ * @param a a - compared argument
+ * @return result of the comparison (1 for true, 0 for false)
+ */
+int iszero(const double a)
 {
 	return (fabs(a) < Eps);
 }
 
-double discriminant(double a, double b, double c)
+/**
+ * @brief counting discriminant
+ * 
+ * @param a a - coefficient
+ * @param b b - coefficient
+ * @param c c - coefficient
+ * 
+ * @return discriminant for the quadratic equation
+ */
+double calc_discr(const double a, const double b, const double c)
 {
 	return b*b - 4*a*c;
 }
 
-int solve_line_case(double b, double c, double* x1)
+/**
+ * @brief solving of linear case
+ * 
+ * @param b b - coefficient
+ * @param c c - coefficient
+ * @param x1 x1 - pointer to the root
+ * 
+ * @return number and typeof roots in the linear equation
+ */
+int solve_line_case(const double b, const double c, double* x1)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
@@ -42,21 +66,19 @@ int solve_line_case(double b, double c, double* x1)
 }
 
 /**
- * Solves a square equation a*x^2 + b*x + c = 0;
- *
- * @brief Solving of quadratic equation
- * @file ios.h
- *
+ * @brief solving of quadratic case
+ * 
+ * 
  * @param[in] a a - coefficient
  * @param[in] b b - coefficient
  * @param[in] c c - coefficient
  * @param[out] x1 x1 - pointer to the first root
  * @param[out] x2 x2 - pointer to the first root
  * 
- * @return Program exit status
+ * @return number and typeof roots in the quadratic equation
  *
-*/
-int solve_quad_case(double a, double b, double c, double* x1, double* x2)
+*/ 
+int solve_quad_case(double a, const double b, const double c, double* x1, double* x2)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
@@ -83,7 +105,7 @@ int solve_quad_case(double a, double b, double c, double* x1, double* x2)
 	assert(isfinite(b));
 	assert(isfinite(c));
 
-	double d = discriminant(a, b, c);
+	double d = calc_discr(a, b, c);
     a = 2 * a;
 
 	/*if (!isfinite(d))
@@ -113,7 +135,21 @@ int solve_quad_case(double a, double b, double c, double* x1, double* x2)
 	}
 }
 
-int solution(double a, double b, double c, double* x1, double* x2)
+/**
+ * @brief solving equation
+ * 
+ * Solves a square equation a*x^2 + b*x + c = 0;
+ * 
+ * @param[in] a a - coefficient
+ * @param[in] b b - coefficient
+ * @param[in] c c - coefficient
+ * @param[out] x1 x1 - pointer to the first root
+ * @param[out] x2 x2 - pointer to the first root
+ * 
+ * @return number and typeof roots in the equation
+ *
+ */
+int solution(double a, const double b, const double c, double* x1, double* x2)
 {
 	/*if (x1 == NULL)
 		return X1NULL;

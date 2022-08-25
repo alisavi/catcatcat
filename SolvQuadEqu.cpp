@@ -1,3 +1,13 @@
+/**
+ * @file SolvQuadEqu.cpp
+ * @brief programm solving quadratic equation using user's coefficients
+ * @version 0.1
+ * @date 2022-08-25
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
