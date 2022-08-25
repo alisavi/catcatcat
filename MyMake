@@ -1,0 +1,14 @@
+QuadEqu: 	SolvQuadEqu.o SolvEqu.o io.o
+	g++ SolvQuadEqu.o SolvEqu.o io.o -o QuadEqu
+	
+SolvQuadEqu.o: SolvQuadEqu.cpp
+	g++ SolvQuadEqu.cpp -c SolvQuadEqu.o
+
+SolvEqu.o: SolvEqu.cpp
+	g++ SolvEqu.cpp -c SolvEqu.o
+
+io.o: io.cpp
+	g++ io.cpp -c io.o
+	
+clean:
+	rm -rf *.o QuadEdu
