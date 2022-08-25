@@ -19,8 +19,8 @@ enum TypeOfRoots
 	NOROOTS,
 	ONEROOT,
 	TWOROOTS,
-	IRRROOTS,
-	INFINITE
+	IRRROOTS = -2,
+	INFINITE = -1
 };
 
 enum ErrCodes

@@ -4,7 +4,7 @@
 #include "enum.h"
 #include "SolvEqu.h"
 
-const double Eps = 1e-6;///< const for comparison double with 0
+const double Eps = 1e-4;///< const for comparison double with 0
 
 /**
  * @brief 
@@ -44,10 +44,8 @@ int solve_line_case(const double b, const double c, double* x1)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
-
 	if (!isfinite(b))
 		return BINCVAL;
-
 	if (!isfinite(c))
 		return CINCVAL;*/
 
@@ -82,19 +80,15 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
 {
 	/*if (x1 == NULL)
 		return X1NULL;
-
 	if (x2 == NULL)
 		return X2NULL;
-
     if (x1 == x2)
 		return X1EQUX2;
 	
 	if (!isfinite(a))
 		return AINCVAL;
-
 	if (!isfinite(b))
 		return BINCVAL;
-
 	if (!isfinite(c))
 		return CINCVAL;*/
 
@@ -153,19 +147,15 @@ int solution(double a, const double b, const double c, double* x1, double* x2)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
-
 	if (x2 == NULL)
 		return X2NULL;
-
     if (x1 == x2)
 		return X1EQUX2;
 	
 	if (!isfinite(a))
 		return AINCVAL;
-
 	if (!isfinite(b))
 		return BINCVAL;
-
 	if (!isfinite(c))
 		return CINCVAL;*/
 

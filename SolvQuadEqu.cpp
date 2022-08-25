@@ -14,6 +14,7 @@
 #include "enum.h"
 #include "SolvEqu.h"
 #include "io.h"
+#include "test.h"
 
 int main()
 {
@@ -23,13 +24,15 @@ int main()
 	double x1 = 0;
 	double x2 = 0;
 
+	test_solv_equ();
+
 	do
 	{
 		input(&a,&b,&c);
 
 		int numberofroots = solution(a, b, c, &x1, &x2);
 
-		//if (numberofroots < 0)
+		//if (numberofroots < -2)
 		//	print_err_msg((ErrCodes)numberofroots);
 
 		output((TypeOfRoots)numberofroots, x1, x2);
