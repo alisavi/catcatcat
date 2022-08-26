@@ -10,7 +10,6 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <assert.h>
 #include "enum.h"
 #include "SolvEqu.h"
 #include "io.h"
@@ -24,21 +23,56 @@ int main()
 	double x1 = 0;
 	double x2 = 0;
 
-	test_solv_equ();
+	show_menu: printf("print 'r' if you wanna start solving quadratic equations\n"	\
+		   "print 't' if you wanna run tests for the programm\n"					\
+		   "print 'q' if you wanna quit\n"											\
+		   "print 'm' if you wanna open the menu\n"									\
+		   "print 'i' for information about the programm\n");
 
-	do
+	inc_choice: int f = getchar();
+
+	switch(f)
 	{
-		input(&a,&b,&c);
+		case 'r':
+			do
+			{
+				input(&a,&b,&c);
 
-		int numberofroots = solution(a, b, c, &x1, &x2);
+				int numberofroots = solution(a, b, c, &x1, &x2);
 
-		//if (numberofroots < -2)
-		//	print_err_msg((ErrCodes)numberofroots);
+				//if (numberofroots < -2)
+				//	print_err_msg((ErrCodes)numberofroots);
 
-		output((TypeOfRoots)numberofroots, x1, x2);
-		printf("Would you like to try again?(Y/n)\n");
+				output((TypeOfRoots)numberofroots, x1, x2);
+				printf("Would you like to try again?(Y/n)\n");
 
-	} while (getchar() == 'Y');
+			} while (getchar() == 'Y');
+			
+			buff_clean();
+			goto inc_choice;
+
+		case 't':
+			test_solv_equ();
+			buff_clean();
+			goto inc_choice;
+
+		case 'q':
+			return 0;
+
+		case 'i':
+			printf("no info yet\n");
+			buff_clean();
+			goto inc_choice;
+
+		case 'm':
+			buff_clean();
+			goto show_menu;
+			break;
+
+		default:
+			buff_clean();
+			goto inc_choice;
+	}
 
 	return 0;
 }

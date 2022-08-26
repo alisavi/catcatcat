@@ -1,5 +1,5 @@
 QuadEqu: 	SolvQuadEqu.o SolvEqu.o io.o test.o
-	g++ SolvQuadEqu.o SolvEqu.o io.o test.o -o QuadEqu
+	g++ SolvQuadEqu.o SolvEqu.o io.o test.o -o QuadEqu -Wall
 	
 SolvQuadEqu.o: SolvQuadEqu.cpp
 	g++ SolvQuadEqu.cpp -c SolvQuadEqu.o

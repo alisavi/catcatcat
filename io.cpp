@@ -3,6 +3,7 @@
 #include <assert.h>
 #include "enum.h"
 #include "io.h"
+#include "SolvEqu.h"
 
 void buff_clean()
 {
@@ -11,12 +12,12 @@ void buff_clean()
 
 void input(double* a, double* b, double* c)
 {
-	assert(a != NULL);
-	assert(b != NULL);
-	assert(c != NULL);
-    assert(a != b);
-    assert(b != c);
-    assert(a != c);
+	ASSERT(a != NULL);
+	ASSERT(b != NULL);
+	ASSERT(c != NULL);
+    ASSERT(a != b);
+    ASSERT(b != c);
+    ASSERT(a != c);
 
 	printf("a*x^2 + b*x + c = 0\nInput a, b, c separated with spaces: ");
 

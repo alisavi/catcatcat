@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include <assert.h>
 #include "enum.h"
 #include "SolvEqu.h"
 
@@ -16,6 +15,8 @@ int iszero(const double a)
 {
 	return (fabs(a) < Eps);
 }
+
+
 
 /**
  * @brief counting discriminant
@@ -49,9 +50,9 @@ int solve_line_case(const double b, const double c, double* x1)
 	if (!isfinite(c))
 		return CINCVAL;*/
 
-	assert(x1 != NULL);
-	assert(isfinite(b));
-	assert(isfinite(c));
+	ASSERT(x1 != NULL);
+	ASSERT(isfinite(b));
+	ASSERT(isfinite(c));
 
 	if (!iszero(b))
 	{
@@ -92,12 +93,12 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
 	if (!isfinite(c))
 		return CINCVAL;*/
 
-	assert(x1 != NULL);
-	assert(x2 != NULL);
-	assert(x1 != x2);
-	assert(isfinite(a));
-	assert(isfinite(b));
-	assert(isfinite(c));
+	ASSERT(x1 != NULL);
+	ASSERT(x2 != NULL);
+	ASSERT(x1 != x2);
+	ASSERT(isfinite(a));
+	ASSERT(isfinite(b));
+	ASSERT(isfinite(c));
 
 	double d = calc_discr(a, b, c);
     a = 2 * a;
@@ -105,7 +106,7 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
 	/*if (!isfinite(d))
 		return DINCVAL;*/
 
-	assert(isfinite(d));
+	ASSERT(isfinite(d));
 
 	if (iszero(d))
 	{
@@ -143,7 +144,7 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
  * @return number and typeof roots in the equation
  *
  */
-int solution(double a, const double b, const double c, double* x1, double* x2)
+int solution(const double a, const double b, const double c, double* x1, double* x2)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
@@ -159,12 +160,12 @@ int solution(double a, const double b, const double c, double* x1, double* x2)
 	if (!isfinite(c))
 		return CINCVAL;*/
 
-	assert(x1 != NULL);
-	assert(x2 != NULL);
-	assert(x1 != x2);
-	assert(isfinite(a));
-	assert(isfinite(b));
-	assert(isfinite(c));
+	ASSERT(x1 != NULL);
+	ASSERT(x2 != NULL);
+	ASSERT(x1 != x2);
+	ASSERT(isfinite(a));
+	ASSERT(isfinite(b));
+	ASSERT(isfinite(c));
 
 	if (iszero(a)) 
         return solve_line_case(b, c, x1);
