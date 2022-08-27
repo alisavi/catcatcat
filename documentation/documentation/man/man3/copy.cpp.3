@@ -1,0 +1,140 @@
+.TH "/home/alisa/Proga/copy.cpp" 3 "Thu Aug 25 2022" "Version 6" "QuadrEquation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/alisa/Proga/copy.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include 'solv\&.h'\fP
+.br
+\fC#include 'io\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTypeOfRoots\fP { \fBNOROOTS\fP, \fBONEROOT\fP, \fBTWOROOTS\fP, \fBIRRROOTS\fP, \fBINFINITE\fP, \fBNOROOTS\fP, \fBONEROOT\fP, \fBTWOROOTS\fP, \fBIRRROOTS\fP, \fBINFINITE\fP }"
+.br
+.ti -1c
+.RI "enum \fBIsCorrect\fP { \fBINCORRECT\fP, \fBCORRECT\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIsCorrect\fP \fBiszero\fP (double a)"
+.br
+.ti -1c
+.RI "void \fBinput\fP (double *a, double *b, double *c)"
+.br
+.ti -1c
+.RI "double \fBdiscr\fP (double a, double b, double c)"
+.br
+.ti -1c
+.RI "\fBTypeOfRoots\fP \fBlinear\fP (double b, double c, double *x1)"
+.br
+.ti -1c
+.RI "\fBTypeOfRoots\fP \fBsolution\fP (double a, double b, double c, double *x1, double *x2)"
+.br
+.ti -1c
+.RI "void \fBoutput\fP (\fBTypeOfRoots\fP n, double x1, double x2)"
+.br
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const double \fBzero\fP = 0\&.0000001"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBIsCorrect\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIINCORRECT \fP\fP
+.TP
+\fB\fICORRECT \fP\fP
+.PP
+Definition at line 18 of file copy\&.cpp\&.
+.SS "enum \fBTypeOfRoots\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fINOROOTS \fP\fP
+.TP
+\fB\fIONEROOT \fP\fP
+.TP
+\fB\fITWOROOTS \fP\fP
+.TP
+\fB\fIIRRROOTS \fP\fP
+.TP
+\fB\fIINFINITE \fP\fP
+.TP
+\fB\fINOROOTS \fP\fP
+.TP
+\fB\fIONEROOT \fP\fP
+.TP
+\fB\fITWOROOTS \fP\fP
+.TP
+\fB\fIIRRROOTS \fP\fP
+.TP
+\fB\fIINFINITE \fP\fP
+.PP
+Definition at line 9 of file copy\&.cpp\&.
+.SH "Function Documentation"
+.PP 
+.SS "double discr (double a, double b, double c)"
+
+.PP
+Definition at line 45 of file copy\&.cpp\&.
+.SS "void input (double * a, double * b, double * c)"
+
+.PP
+Definition at line 30 of file copy\&.cpp\&.
+.SS "\fBIsCorrect\fP iszero (double a)"
+
+.PP
+Definition at line 24 of file copy\&.cpp\&.
+.SS "\fBTypeOfRoots\fP linear (double b, double c, double * x1)"
+
+.PP
+Definition at line 50 of file copy\&.cpp\&.
+.SS "int main ()"
+
+.PP
+Definition at line 117 of file copy\&.cpp\&.
+.SS "void output (\fBTypeOfRoots\fP n, double x1, double x2)"
+
+.PP
+Definition at line 95 of file copy\&.cpp\&.
+.SS "\fBTypeOfRoots\fP solution (double a, double b, double c, double * x1, double * x2)"
+
+.PP
+Definition at line 65 of file copy\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const double zero = 0\&.0000001"
+
+.PP
+Definition at line 7 of file copy\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuadrEquation from the source code\&.

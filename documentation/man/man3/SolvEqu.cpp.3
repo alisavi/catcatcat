@@ -1,0 +1,175 @@
+.TH "SolvEqu.cpp" 3 "Thu Aug 25 2022" "Version 7" "QuadEqu" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SolvEqu.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include 'enum\&.h'\fP
+.br
+\fC#include 'SolvEqu\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBiszero\fP (const double a)"
+.br
+.ti -1c
+.RI "double \fBcalc_discr\fP (const double a, const double b, const double c)"
+.br
+.RI "counting discriminant "
+.ti -1c
+.RI "int \fBsolve_line_case\fP (const double b, const double c, double *x1)"
+.br
+.RI "solving of linear case "
+.ti -1c
+.RI "int \fBsolve_quad_case\fP (double a, const double b, const double c, double *x1, double *x2)"
+.br
+.RI "solving of quadratic case "
+.ti -1c
+.RI "int \fBsolution\fP (double a, const double b, const double c, double *x1, double *x2)"
+.br
+.RI "solving equation "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const double \fBEps\fP = 1e\-6"
+.br
+.RI "const for comparison double with 0 "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "double calc_discr (const double a, const double b, const double c)"
+
+.PP
+counting discriminant 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP a - coefficient 
+.br
+\fIb\fP b - coefficient 
+.br
+\fIc\fP c - coefficient
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+discriminant for the quadratic equation 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file SolvEqu\&.cpp\&.
+.SS "int iszero (const double a)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP a - compared argument 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+result of the comparison (1 for true, 0 for false) 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file SolvEqu\&.cpp\&.
+.SS "int solution (double a, const double b, const double c, double * x1, double * x2)"
+
+.PP
+solving equation Solves a square equation a*x^2 + b*x + c = 0;
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP a - coefficient 
+.br
+\fIb\fP b - coefficient 
+.br
+\fIc\fP c - coefficient 
+.br
+\fIx1\fP x1 - pointer to the first root 
+.br
+\fIx2\fP x2 - pointer to the first root
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+number and typeof roots in the equation 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file SolvEqu\&.cpp\&.
+.SS "int solve_line_case (const double b, const double c, double * x1)"
+
+.PP
+solving of linear case 
+.PP
+\fBParameters\fP
+.RS 4
+\fIb\fP b - coefficient 
+.br
+\fIc\fP c - coefficient 
+.br
+\fIx1\fP x1 - pointer to the root
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+number and typeof roots in the linear equation 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file SolvEqu\&.cpp\&.
+.SS "int solve_quad_case (double a, const double b, const double c, double * x1, double * x2)"
+
+.PP
+solving of quadratic case 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP a - coefficient 
+.br
+\fIb\fP b - coefficient 
+.br
+\fIc\fP c - coefficient 
+.br
+\fIx1\fP x1 - pointer to the first root 
+.br
+\fIx2\fP x2 - pointer to the first root
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+number and typeof roots in the quadratic equation 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file SolvEqu\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const double Eps = 1e\-6"
+
+.PP
+const for comparison double with 0 
+.PP
+Definition at line 7 of file SolvEqu\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for QuadEqu from the source code\&.
