@@ -1,5 +1,5 @@
-QuadEqu: 	SolvQuadEqu.o SolvEqu.o io.o test.o
-	g++ SolvQuadEqu.o SolvEqu.o io.o test.o -o QuadEqu -Wall
+QuadEqu: 	SolvQuadEqu.o SolvEqu.o io.o test.o ComLinePars.o
+	g++ SolvQuadEqu.o SolvEqu.o io.o test.o ComLinePars.o -o QuadEqu -Wall
 	
 SolvQuadEqu.o: SolvQuadEqu.cpp
 	g++ SolvQuadEqu.cpp -c SolvQuadEqu.o
@@ -12,6 +12,9 @@ io.o: io.cpp
 
 test.o: test.cpp
 	g++ test.cpp -c test.o
+
+ComLinePars.o: ComLinePars.cpp
+	g++ ComLinePars.cpp -c ComLinePars.o
 	
 clean:
 	rm -rf *.o QuadEdu

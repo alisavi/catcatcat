@@ -34,4 +34,11 @@ enum ErrCodes
 	DINCVAL
 };
 
+struct coeffs
+{
+	double a;
+	double b;
+	double c;
+};
+
 #endif

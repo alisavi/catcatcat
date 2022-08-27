@@ -10,69 +10,50 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+#include "ComLinePars.h"
 #include "enum.h"
 #include "SolvEqu.h"
 #include "io.h"
 #include "test.h"
 
-int main()
+int main(const int argc, char *argv[])
 {
-	double a  = 0;
-	double b  = 0;
-	double c  = 0;
+	
+
 	double x1 = 0;
 	double x2 = 0;
+	int    f  = 0;
 
-	show_menu: printf("print 'r' if you wanna start solving quadratic equations\n"	\
-		   "print 't' if you wanna run tests for the programm\n"					\
-		   "print 'q' if you wanna quit\n"											\
-		   "print 'm' if you wanna open the menu\n"									\
-		   "print 'i' for information about the programm\n");
+	struct coeffs us_coeff = {};
 
-	inc_choice: int f = getchar();
+	printf("This is programm for solving quadratic equations.\n"		\
+		   "Print 't' to run tests\n"									\
+		   "Print 'h' for help\n");
+	
+	if (argc > 1)
+		com_pars(argv[1]);
 
-	switch(f)
+	do
 	{
-		case 'r':
-			do
-			{
-				input(&a,&b,&c);
+		input(&us_coeff.a, &us_coeff.b, &us_coeff.c);
 
-				int numberofroots = solution(a, b, c, &x1, &x2);
+		int numberofroots = solution(us_coeff, &x1, &x2);
 
-				//if (numberofroots < -2)
-				//	print_err_msg((ErrCodes)numberofroots);
+		//if (numberofroots < -2)
+		//	print_err_msg((ErrCodes)numberofroots);
 
-				output((TypeOfRoots)numberofroots, x1, x2);
-				printf("Would you like to try again?(Y/n)\n");
-
-			} while (getchar() == 'Y');
-			
+		output((TypeOfRoots)numberofroots, x1, x2);
+		printf("Would you like to try again?(Y/n)\n");
+		
+		f = getchar();
+		if (check_sp_simb(f))
+		{
 			buff_clean();
-			goto inc_choice;
+			f = 'Y';
+		}
 
-		case 't':
-			test_solv_equ();
-			buff_clean();
-			goto inc_choice;
-
-		case 'q':
-			return 0;
-
-		case 'i':
-			printf("no info yet\n");
-			buff_clean();
-			goto inc_choice;
-
-		case 'm':
-			buff_clean();
-			goto show_menu;
-			break;
-
-		default:
-			buff_clean();
-			goto inc_choice;
-	}
+	} while (f == 'Y');
 
 	return 0;
 }

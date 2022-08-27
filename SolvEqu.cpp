@@ -27,9 +27,9 @@ int iszero(const double a)
  * 
  * @return discriminant for the quadratic equation
  */
-double calc_discr(const double a, const double b, const double c)
+double calc_discr(struct coeffs us_coeff)
 {
-	return b*b - 4*a*c;
+	return us_coeff.b*us_coeff.b - 4*us_coeff.a*us_coeff.c;
 }
 
 /**
@@ -41,7 +41,7 @@ double calc_discr(const double a, const double b, const double c)
  * 
  * @return number and typeof roots in the linear equation
  */
-int solve_line_case(const double b, const double c, double* x1)
+int solve_line_case(struct coeffs us_coeff, double* x1)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
@@ -51,16 +51,15 @@ int solve_line_case(const double b, const double c, double* x1)
 		return CINCVAL;*/
 
 	ASSERT(x1 != NULL);
-	ASSERT(isfinite(b));
-	ASSERT(isfinite(c));
+	
 
-	if (!iszero(b))
+	if (!iszero(us_coeff.b))
 	{
-		*x1 = -c/b;
+		*x1 = -us_coeff.c/us_coeff.b;
 		return ONEROOT;
 	}
 
-	else if (!iszero(c)) return NOROOTS;
+	else if (!iszero(us_coeff.c)) return NOROOTS;
 	else return INFINITE;
 }
 
@@ -77,7 +76,7 @@ int solve_line_case(const double b, const double c, double* x1)
  * @return number and typeof roots in the quadratic equation
  *
 */ 
-int solve_quad_case(double a, const double b, const double c, double* x1, double* x2)
+int solve_quad_case(struct coeffs us_coeff, double* x1, double* x2)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
@@ -96,12 +95,9 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
 	ASSERT(x1 != NULL);
 	ASSERT(x2 != NULL);
 	ASSERT(x1 != x2);
-	ASSERT(isfinite(a));
-	ASSERT(isfinite(b));
-	ASSERT(isfinite(c));
 
-	double d = calc_discr(a, b, c);
-    a = 2 * a;
+	double d = calc_discr(us_coeff);
+    us_coeff.a = 2 * us_coeff.a;
 
 	/*if (!isfinite(d))
 		return DINCVAL;*/
@@ -110,22 +106,22 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
 
 	if (iszero(d))
 	{
-		*x1 = -b / a;
+		*x1 = -us_coeff.b / us_coeff.a;
 		return ONEROOT;
 	}
 
 	else if (d > 0)
 	{
 		d = sqrt(d);
-		*x1 = (-b + d) / a;
-		*x2 = (-b - d) / a;
+		*x1 = (-us_coeff.b + d) / us_coeff.a;
+		*x2 = (-us_coeff.b - d) / us_coeff.a;
 		return TWOROOTS;
 	}
 
 	else
 	{
-		*x1 = -b / a;
-		*x2 = fabs(sqrt(-d)/ a);
+		*x1 = -us_coeff.b / us_coeff.a;
+		*x2 = fabs(sqrt(-d)/ us_coeff.a);
 		return IRRROOTS;
 	}
 }
@@ -144,7 +140,7 @@ int solve_quad_case(double a, const double b, const double c, double* x1, double
  * @return number and typeof roots in the equation
  *
  */
-int solution(const double a, const double b, const double c, double* x1, double* x2)
+int solution(struct coeffs us_coeff, double* x1, double* x2)
 {
 	/*if (x1 == NULL)
 		return X1NULL;
@@ -163,12 +159,9 @@ int solution(const double a, const double b, const double c, double* x1, double*
 	ASSERT(x1 != NULL);
 	ASSERT(x2 != NULL);
 	ASSERT(x1 != x2);
-	ASSERT(isfinite(a));
-	ASSERT(isfinite(b));
-	ASSERT(isfinite(c));
 
-	if (iszero(a)) 
-        return solve_line_case(b, c, x1);
+	if (iszero(us_coeff.a)) 
+        return solve_line_case(us_coeff, x1);
 	else
-		return solve_quad_case(a, b, c, x1, x2);
+		return solve_quad_case(us_coeff, x1, x2);
 }

@@ -22,13 +22,14 @@
  */
 void test_solv_equ()
 {
+    struct coeffs def_coeff;
+	def_coeff.a       = 0;
+	def_coeff.b       = 0;
+	def_coeff.c       = 0;
     double x1         = 0;
     double x2         = 0;
     double resx1      = 0;
     double resx2      = 0;
-    double a          = 0;
-    double b          = 0;
-    double c          = 0;
     int    nRoots     = 10;
     int    resnRoots  = 10;
     int    nTests     = 0;
@@ -45,19 +46,19 @@ void test_solv_equ()
     {
         while (!feof(fp))
         {
-            a = b = c = x1 = x2 = resx1 = resx2 = 0;
+            def_coeff.a = def_coeff.b = def_coeff.c = x1 = x2 = resx1 = resx2 = 0;
             nRoots = resnRoots = 10;
 
             ++nTests;
 
-            fscanf(fp, "%lg %lg %lg %d %lg %lg", &a, &b, &c, &nRoots, &x1, &x2);
-            resnRoots = solution(a, b, c, &resx1, &resx2);
+            fscanf(fp, "%lg %lg %lg %d %lg %lg", &def_coeff.a, &def_coeff.b, &def_coeff.c, &nRoots, &x1, &x2);
+            resnRoots = solution(def_coeff, &resx1, &resx2);
 
             if (!(iszero(resx1 - x1) && iszero(resx2 - x2) && iszero(resnRoots - nRoots)))
             {
                 printf("FAILED (a = %lg, b = %lg, c = %lg)\nExpected:      x1 = %lg, x2 = %lg, nRoots = %d\n"   \
                                                            "Failed result: x1 = %lg, x2 = %lg, nRoots = %d\n",  \
-                                                            a, b, c, x1, x2, nRoots, resx1, resx2, resnRoots);
+                                                            def_coeff.a, def_coeff.b, def_coeff.c, x1, x2, nRoots, resx1, resx2, resnRoots);
             }
             else
                 ++nSuccTests;

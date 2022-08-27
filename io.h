@@ -12,9 +12,13 @@
 #ifndef SOLV_IO_H
 #define SOLV_IO_H
 
+#include "enum.h"
+
+void show_help();
 void input(double* a, double* b, double* c);
 void output(TypeOfRoots n, double x1, double x2);
 void buff_clean();
 void print_err_msg(ErrCodes err_code);
+int check_sp_simb(int f);
 
 #endif

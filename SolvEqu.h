@@ -13,11 +13,12 @@
 
 #define ASSERT(condition) if (!(condition)) printf("Error in %s\nin file %s\nin string %d\nin function %s",  \
                                             #condition, __FILE__, __LINE__, __PRETTY_FUNCTION__);
+#define STREQUAL(str1, str2) !strcmp()
 
 int iszero(double a);
-double calc_discr(double a, double b, double c);
-int solve_line_case(double b, double c, double* x1);
-int solve_quad_case(double a, double b, double c, double* x1, double* x2);
-int solution(double a, double b, double c, double* x1, double* x2);
+double calc_discr(struct coeffs us_coeff);
+int solve_line_case(struct coeffs us_coeff, double* x1);
+int solve_quad_case(struct coeffs us_coeff, double* x1, double* x2);
+int solution(struct coeffs us_coeff, double* x1, double* x2);
 
 #endif
