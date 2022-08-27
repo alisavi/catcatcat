@@ -17,6 +17,7 @@ to receive help or run tests straitly after starting the programm
 #### User's input
 
 The programm requests user to input three coefficients a, b and c which would be used in solving equation
+
 *ax^2 + bx + c = 0*.
 
 After solving programm gives user the opportunity to solve another equation by printing `Y` as the response to the relevant offer.
