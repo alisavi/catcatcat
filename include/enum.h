@@ -19,7 +19,7 @@ enum TypeOfRoots
 	NOROOTS,
 	ONEROOT,
 	TWOROOTS,
-	IRRROOTS = -2,
+	COMROOTS = -2,
 	INFINITE = -1
 };
 

@@ -4,6 +4,7 @@
 #include "../include/SolvEqu.h"
 #include "../include/io.h"
 #include "../include/test.h"
+#include "../include/ComLinePars.h"
 
 
 /**
@@ -13,20 +14,22 @@
  * depending on user's input
  *
  */
-void ComPars(char* argv)
+int ComPars(char** argv, int argc)          //argc, argv 
 {
-    // TEST_FLAG
-    // HELP_FLAG
-    // char ret_value = 0;
-
-    if (!strcmp(argv, "-test"))
+    int TEST_FLAG  = 1;
+    int HELP_FLAG  = 2;
+    int ret_value  = 0;
+    for (int i = 0; i < argc; i++)
     {
-        TestSolvEqu();
-        //ret_value = ret_value | TEST_FLAG
+        if (!strcmp(argv[i], "-test"))
+        {
+            ret_value = ret_value | TEST_FLAG;
+        }
+        else if (!strcmp(argv[i], "-help"))
+        {
+            ret_value = ret_value | HELP_FLAG;
+        }
     }
-    else if (!strcmp(argv, "-help"))
-    {
-        ShowHelp();
-    }
-    // else INC_FLAG
+    
+    return ret_value;
 }

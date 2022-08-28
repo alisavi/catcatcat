@@ -10,7 +10,7 @@
  * @brief cleaning of the buffer
  * 
  */
-void BuffClean()   ///
+void InputBuffClean()
 {
     while (getchar() != '\n');
 }
@@ -39,9 +39,9 @@ void input(double* a, double* b, double* c)
 			printf("incorrect input, try again\n");
 		else
 			printf("Input a, b, c separated with spaces: ");
-		BuffClean();
+		InputBuffClean();
 	}
-    BuffClean();
+    InputBuffClean();
 }
 
 
@@ -90,7 +90,7 @@ void output(TypeOfRoots n, double x1, double x2)
 		case TWOROOTS:
 			printf("x1 = %lg\nx2 = %lg\n", x1, x2);
 			break;
-		case IRRROOTS:
+		case COMROOTS:
 			printf("x1 = %lg + i*%lg\nx2 = %lg - i*%lg\n", x1, x2, x1, x2);
 			break;
 		case INFINITE:

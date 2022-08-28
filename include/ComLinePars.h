@@ -12,6 +12,6 @@
 #ifndef COM_LINE_PARS_H
 #define COM_LINE_PARS_H
 
-void ComPars(char* argv);
+int ComPars(char** argv, int argc);
 
 #endif

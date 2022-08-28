@@ -17,7 +17,7 @@
 void ShowHelp();
 void input(double* a, double* b, double* c);
 void output(TypeOfRoots n, double x1, double x2);
-void BuffClean();
+void InputBuffClean();
 int  ExecSpecialOption(int f);
 
 #endif

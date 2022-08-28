@@ -26,11 +26,10 @@
 
 int main(const int argc, char *argv[])
 {
-	
 
 	double x1 = 0;
 	double x2 = 0;
-	int    f  = 0;  //
+	int    ch = 0;
 
 	struct coeffs UsCoeff = {};
 
@@ -38,8 +37,25 @@ int main(const int argc, char *argv[])
 		   "Print 't' to run tests\n"									\
 		   "Print 'h' for help\n");
 	
-	if (argc > 1)                                                         ///
-		ComPars(argv[1]);
+	if (argc > 1)
+	{
+		switch (ComPars(argv, argc))
+		{
+			case 1:
+				TestSolvEqu();
+				break;
+			case 2:
+				ShowHelp();
+				break;
+			case 3:
+				ShowHelp();
+				TestSolvEqu();
+				break;
+			default:
+				printf("\nno understandable flags\n");
+				break;
+		}
+	}
 
 	do
 	{
@@ -50,14 +66,14 @@ int main(const int argc, char *argv[])
 		output((TypeOfRoots)numberofroots, x1, x2);
 		printf("Would you like to try again?(Y/n)\n");
 		
-		f = getchar();
-		if (ExecSpecialOption(f))
+		ch = getchar();
+		if (ExecSpecialOption(ch))
 		{
-			BuffClean();
-			f = 'Y';
+			InputBuffClean();
+			ch = 'Y';
 		}
 
-	} while (f == 'Y');
+	} while (ch == 'Y');
 
 	return 0;
 }

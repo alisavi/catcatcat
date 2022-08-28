@@ -122,7 +122,7 @@ int SolveQuadCase(struct coeffs UsCoeff, double* x1, double* x2)
 	{
 		*x1 = -UsCoeff.b / UsCoeff.a;
 		*x2 = fabs(sqrt(-d)/ UsCoeff.a);
-		return IRRROOTS;
+		return COMROOTS;
 	}
 }
 

@@ -27,12 +27,12 @@ void TestSolvEqu()
     double x2         = 0;
     double resx1      = 0;
     double resx2      = 0;
-    int    nRoots     = 10;  // INV_VAL 
-    int    resnRoots  = 10; ///
+    int    nRoots     = 0;
+    int    resnRoots  = 0;
     int    nTests     = 0;
     int    nSuccTests = 0;
 
-    FILE *fp = fopen("../test_data/testing_data", "r");    // name --> .h
+    FILE *fp = fopen("src/TestingData.txt", "r");    // name --> .h
 
     if (!fp)
     {
@@ -48,7 +48,11 @@ void TestSolvEqu()
 
             ++nTests;
 
-            fscanf(fp, "%lg %lg %lg %d %lg %lg", &DefCoeff.a, &DefCoeff.b, &DefCoeff.c, &nRoots, &x1, &x2); ///
+            if (fscanf(fp, "%lg %lg %lg %d %lg %lg", &DefCoeff.a, &DefCoeff.b, &DefCoeff.c, &nRoots, &x1, &x2) != 6)
+            {
+                printf("invalid database\n");
+            }
+
             resnRoots = GetSolution(DefCoeff, &resx1, &resx2);
 
             // resnRoots 
