@@ -58,10 +58,10 @@ Where `nRoots` is
 Unused roots contain `0`, in other cases x1 > x2.
 For example, we have an equation
 ```
-0x^2 + 1x + 1 = 0;
+0x^2 + 2x + 1 = 0;
 x = -1.
 ```
-Then user needs to add following line in "TestingData.txt"
+Then user needs to add the following line in "TestingData.txt"
 ```
-0 1 1 1 -1 0
+0 2 1 1 -0.5 0
 ```
