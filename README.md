@@ -6,7 +6,7 @@ Clone the programm files from github:
 ```
 git clone https://github.com/alisavi/catcatcat.git
 ```
-In the directory make a directory for *.o files:
+In the directory where git repository was cloned create a directory for *.o files:
 ```
 mkdir obj
 ```
