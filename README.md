@@ -44,7 +44,7 @@ In case of negative discriminant output contains complex roots.
 
 #### Testing data
 
-Testing data is contained in the file "testing_data.txt"
+Testing data is contained in the file "TestingData.txt"
 in following format:
 ```
 [first coefficient] [second coefficient] [third coefficient] [nRoots] [first root] [second root]
@@ -61,7 +61,7 @@ For example, we have an equation
 0x^2 + 1x + 1 = 0;
 x = -1.
 ```
-Then in the file with data is written
+Then user needs to add following line in "TestingData.txt"
 ```
 0 1 1 1 -1 0
 ```
