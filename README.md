@@ -1,11 +1,20 @@
 ## This programm was written for solving quadratic equations.
 
-#### Starting the programm
+#### Building the programm
 
+Clone the programm files from github:
+```
+git clone https://github.com/alisavi/catcatcat.git
+```
+In the directory make a directory for *.o files:
+```
+mkdir obj
+```
 make the MyMake file to compile the programm:
 ```
 make -f MyMake
 ```
+#### Starting the programm
 
 run the QuadEqu to start solving:
 ```
@@ -22,11 +31,11 @@ The programm requests user to input three coefficients a, b and c which would be
 
 After solving programm gives user the opportunity to solve another equation by printing `Y` as the response to the relevant offer.
 
-Special symbols `t` `h` `q` can be used instead of requested input for special output
+Special symbols `t` `h` `q` can be used instead of requested input as special commands
 
- - `t` for running tests of the solving function;
- - `h` for showing help message;
- - `q` for exiting the programm.
+ - `t` runs tests of the solving function;
+ - `h` shows help message;
+ - `q` exits the programm.
  
 #### Output
 
@@ -40,3 +49,12 @@ in following format:
 ```
 [first coefficient] [second coefficient] [third coefficient] [nRoots] [first root] [second root]
 ```
+Where `nRoots` is
+ - `2` for two rational roots
+ - `1` for one rational root
+ - `0` for no roots
+ - `-1` for infinite number of roots
+ - `-2` for two irrational roots
+ Unused roots contain `0`. 
+ For example we have an equatio
+ Also in case of irrational root
