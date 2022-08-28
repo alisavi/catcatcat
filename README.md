@@ -40,7 +40,7 @@ Special symbols `t` `h` `q` can be used instead of requested input as special co
 #### Output
 
 The output contains roots of the equation or a message telling there is no roots or infinite number of roots.
-In case of negative discriminant output contains irrational roots.
+In case of negative discriminant output contains complex roots.
 
 #### Testing data
 
@@ -50,11 +50,18 @@ in following format:
 [first coefficient] [second coefficient] [third coefficient] [nRoots] [first root] [second root]
 ```
 Where `nRoots` is
- - `2` for two rational roots
- - `1` for one rational root
- - `0` for no roots
- - `-1` for infinite number of roots
- - `-2` for two irrational roots
- Unused roots contain `0`. 
- For example we have an equatio
- Also in case of irrational root
+ - `2` for two rational roots;
+ - `1` for one rational root;
+ - `0` for no roots;
+ - `-1` for infinite number of roots;
+ - `-2` for two complex roots.
+Unused roots contain `0`, in other cases x1 > x2.
+For example, we have an equation
+```
+0x^2 + 1x + 1 = 0;
+x = -1.
+```
+Then in the file with data is written
+```
+0 1 1 1 -1 0
+```
